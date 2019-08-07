@@ -1,9 +1,12 @@
-amount=int(input("enter the amount:"))
-notes=[10,20,50,100,200,500]
-notecount=[0,0,0,0,0,0]
-print("currency count")
-for x,y in zip(notes,notecount):
-    if amount >=x:
-        y=amount//x
-        amount=amount-y*x
-        print(x,":",y)
+def no_notes(a):
+  Q = [500, 200, 100, 50, 20, 10]
+  x = 0
+  for i in range(6):
+    q = Q[i]
+    x += int(a / q)
+    a = int(a % q)
+  if a > 0:
+    x = -1
+  return x
+print(no_notes(880))
+print(no_notes(1000))
